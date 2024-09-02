@@ -34,7 +34,7 @@ use larryTheCoder\arena\ArenaImpl;
 use larryTheCoder\utils\ConfigManager;
 use larryTheCoder\utils\Utils;
 use larryTheCoder\worker\LevelAsyncPool;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\utils\Config;
 
 final class ArenaManager {
