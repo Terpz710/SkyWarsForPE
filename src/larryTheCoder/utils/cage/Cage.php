@@ -29,7 +29,7 @@
 namespace larryTheCoder\utils\cage;
 
 use pocketmine\block\Block;
-use pocketmine\level\Position;
+use pocketmine\world\Position;
 
 /**
  * The main cage class that is responsible in handling player's
@@ -82,11 +82,11 @@ class Cage {
 
 		/** @var Position[] $list */
 		$list = [];
-		$level = $loc->getLevel();
+		$world = $loc->getWorld();
 		$part = $this->parts;
 		$loc->y = $loc->y - 1;
 		$list[] = clone $loc;
-		$level->setBlock($loc->asVector3(), $part[0], true, true);
+		$world->setBlock($loc->asVector3(), $part[0], true, true);
 		for($i = 0; $i <= 4; $i++){
 			$array = [
 				$loc->add(1.0, 0.0, 0.0),
@@ -101,13 +101,13 @@ class Cage {
 			for($j = 0; $j < count($array); ++$j){
 				$loc2 = $array[$j];
 				$list[] = Position::fromObject($loc2, $level);
-				$level->setBlock($loc2, $part[$i], true, true);
+				$world->setBlock($loc2, $part[$i], true, true);
 			}
 			$loc->y = $loc->y + 1;
 		}
 		$loc->y = $loc->y - 1;
 		$list[] = Position::fromObject($loc->asVector3(), $locate->getLevel());
-		$level->setBlock($loc->asVector3(), $part[4], true, true);
+		$world->setBlock($loc->asVector3(), $part[4], true, true);
 
 		return $list;
 	}
@@ -117,7 +117,7 @@ class Cage {
 		for($y = 0; $y < 6; ++$y){
 			for($z = -2; $z < 2; $z++){
 				for($x = -2; $x < 2; $x++){
-					$loc->level->setBlock($loc->add($x, $y, $z), Block::get(0));
+					$loc->world->setBlock($loc->add($x, $y, $z), VanillaBlocks::AIR());
 				}
 			}
 		}
