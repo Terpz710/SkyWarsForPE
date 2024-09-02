@@ -28,7 +28,7 @@
 
 namespace larryTheCoder\utils\cage;
 
-use pocketmine\block\Block;
+use pocketmine\block\VanillaBlocks;
 use pocketmine\world\Position;
 
 /**
