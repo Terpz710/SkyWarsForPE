@@ -35,7 +35,7 @@ use larryTheCoder\utils\permission\PluginPermission;
 use larryTheCoder\utils\PlayerData;
 use larryTheCoder\utils\Utils;
 use onebone\economyapi\EconomyAPI;
-use pocketmine\{block\BlockFactory, Player, utils\Config};
+use pocketmine\{block\VanillaBlocks, player\Player, utils\Config};
 
 class CageManager {
 
@@ -90,7 +90,7 @@ class CageManager {
 			// to outsmart the code but failed.
 			$blocks = [];
 			for($j = 0; $j < 4; ++$j){
-				$blocks[$j] = BlockFactory::get(20);
+				$blocks[$j] = VanillaBlocks::GLASS();
 			}
 
 			$this->defaultCage = new Cage("Default Cage", 0, "", $blocks);
